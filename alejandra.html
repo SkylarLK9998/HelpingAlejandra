@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<script>
+//create more imgs, number them appropriately and fill in the correct values of right next and left next and the
+var img0 = {id: 0, leftNext: 1, rightNext:2, img:"Images/img0"};
+var img1 = {id: 1, leftNext: 2, rightNext:3, img:"Images/img1"};
+var img2 = {id: 2, leftNext: 3, rightNext:3, img:"Images/img2"};
+var img3 = {id: 3, leftNext: 3, rightNext:3, img:"Images/img3"};
+
+//add all the images to the img
+var imgs = [img0, img1, img2, img3];
+
+var showThis; //current image being shown
+
+window.onload = function() {
+    var showThis = imgs[0];
+    var cimg = document.getElementById("displaybox") //cimg is current image, displaybox is div in html where images are stored
+    cimg.src = showThis.img;
+};
+
+function rightClick(){
+	var i = showThis.rightNext; //tells you which number image to get
+    var showThis = imgs[i]; //resets showThis to the new image
+    var cimg = document.getElementById("displaybox") //gets the box to display the image
+    cimg.src = showThis.img; //updates the image in the box
+}
+
+function leftClick(){
+	var i = showThis.leftNext;
+    var showThis = imgs[i];
+    var cimg = document.getElementById("displaybox")
+    cimg.src = showThis.img;
+}
+</script>
+<div class="slideshow-container">
+     <div>
+         <img id="displaybox" src="">
+         <!--These are the buttons, resize and reposition accordingly, set opacity to 0-->
+          <a onclick="leftClick()"></a>
+          <a onclick="rightClick()"></a>
+     </div>
+</div>
+</body>
+</html>
